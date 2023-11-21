@@ -15,7 +15,7 @@ export default {
 
     function parseDate(dateString) {              //Funktion, die Datum in einen Zeitstempel konvertiert
       const [year, month, day] = dateString.split("-");
-      return new Date(year, month, day).getTime();
+      return new Date(year, month -1, day).getTime();
     }
 
     function AddIncome(obj) {                     //wird aufgerufen, wenn Ereignis add-income ausgelöst wird
@@ -25,17 +25,22 @@ export default {
         value: parseInt(obj.value),
         date: parseDate(obj.date)
       }];
+    }
 
+    function removeItem(id) {                               //um ein Element mit angegebener ID aus income-Array zu entfernen
+      state.income = state.income.filter(v => v.id != id);  //filter-Funktion, zu Erstellung neuer Array ohne dem Element
     }
 
     return {                            //setup Funktion gibt Objekt  mit entsprechenden Eigenschaften zurück
       Header,
       state,
       Form,
-      AddIncome
+      AddIncome,
+      removeItem
     };
   }
 };
+
 </script>
 
 <template>                                    <!--Verwendung der Komponenten-->
