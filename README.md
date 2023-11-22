@@ -1,29 +1,44 @@
 # vue-mareikehaffelder
 
-This template should help get you started developing with Vue 3 in Vite.
+Willkommen bei deinem neuen Einkommensrechner!
+Diese Anwendung ist dein persönlicher Assistent, um deine Finanzen im Überblick zu behalten.
+Einfach Betrag, Beschreibung und Datum eingeben, und schon generiert die App eine übersichtliche Liste mit Berechnung der Gesamteinnahmen. 
+Du hast natürlich auch die Möglichkeit deine Einnahmen wieder zu löschen.
 
-## Recommended IDE Setup
+Viel Spaß und gutes Einkommen!
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Komponenten
 
-## Customize configuration
+Die Anwendung setzt auf mehrere Komponenten, von denen jede für die reibungslose Funktionalität der App entscheidend ist:
+- Hauptkomponente: App.vue
+- Header-Komponente: Header.vue
+- Formular-Komponente: Form.vue
+- Einnahmen-Element-Komponente: IncomeItem.vue
+- Einnahmen-Liste-Komponente: IncomeList.vue
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Installation 
 
-## Project Setup
+Folge diesen Schritten, um die Anwendung zum Laufen zu bringen:
 
+1. Klone das Git-Repository
+
+2. Projektaufbau
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+3. Kompiliere und aktiviere Hot-Reload für die Entwicklung
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+4. Kompiliere und Minimiere für die Produktion
 
 ```sh
 npm run build
 ```
+5. Öffne die Anwendung über den angezeigten Link (http://localhost:5176/)
+
+
+
