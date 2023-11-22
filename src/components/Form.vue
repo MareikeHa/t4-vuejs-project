@@ -1,5 +1,6 @@
 <script>
 import { reactive } from 'vue';
+import '../assets/styles.css';
 
 export default {
   props: {

@@ -4,6 +4,7 @@ import { reactive, computed } from 'vue';
 import Header from './components/Header.vue';
 import Form from './components/Form.vue';
 import IncomeList from './components/IncomeList.vue';
+import './assets/styles.css';
 
 const storedIncome = JSON.parse(localStorage.getItem('income')); //Wert im LocalStorage wird abgerufen & als JavaScript-Objekt gepast
 
@@ -36,7 +37,7 @@ export default {
         date: parseDate(obj.date)
       }];
 
-      updateLocalStorage();                       //ruft Funktion auf
+      updateLocalStorage();                     //ruft Funktion auf
     }
 
     function removeItem(id) {                               //um ein Element mit angegebener ID aus income-Array zu entfernen
@@ -64,6 +65,7 @@ export default {
 <template>
   <!--Verwendung der Komponenten-->
   <Header :totalIncome="state.totalIncome" />             <!--totalIncome wird als Prop an Header übergeben-->
+  <hr>
   <Form @add-income="AddIncome" />                        <!--wenn in Form.vue ausgelöst, wird add-income abgefangen & Funktion AddIncome aufgerufen-->
   <IncomeList :state="state" @remove-item="removeItem" /> <!--state als Prop an IncomeList übergeben & wenn Ereignis ausgelöst removeItem aufgerufen-->
 </template>

@@ -1,5 +1,6 @@
 <script> 
 import IncomeItem from './IncomeItem.vue';  //IncomeItem wird importiert
+import '../assets/styles.css';
 
 export default {
     props: {

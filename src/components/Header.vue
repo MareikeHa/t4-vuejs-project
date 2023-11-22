@@ -1,4 +1,6 @@
 <script>
+import '../assets/styles.css';
+
 export default {
     //Definition Eigenschaften totalIncome
     props: {
