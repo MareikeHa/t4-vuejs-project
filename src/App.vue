@@ -3,6 +3,7 @@
 import { reactive, computed } from 'vue';
 import Header from './components/Header.vue';
 import Form from './components/Form.vue';
+import IncomeList from './components/IncomeList.vue';
 
 export default {
   setup() {
@@ -10,6 +11,13 @@ export default {
       income: [],                       //leerer Array income, zum Speichern der Einnahmen
       totalIncome: computed(() => {     //berechnete (computed) Eigenschaft totalIncome (Gesamteinnahmen)
         return state.income.reduce((total, item) => total + item.value, 0);   //Berechnung mittels reduce Funktion
+      }),
+      sortedIncome: computed(() => {                  //Definition berechnete Eigenschaft sortedIncome 
+        let temp = [];                                //temporäres Array, um sortierte Einkommen zu speichern
+        temp = state.income.sort(function (a, b) {    //Einkommen werden nach Datum in absteigener Reihenfolge sortiert & in Array gespeichert
+          return b.date - a.date;
+        });
+        return temp;                                  //Rückgabe sortierter Array
       })
     });
 
@@ -18,7 +26,7 @@ export default {
       return new Date(year, month -1, day).getTime();
     }
 
-    function AddIncome(obj) {                     //wird aufgerufen, wenn Ereignis add-income ausgelöst wird
+    function AddIncome(obj) {                     //wird aufgerufen, wenn Ereignis add-income ausgelöst wird - Hinzufügen von Einkommen
       state.income = [...state.income, {          //Einnahme wird income-Array hinzugefügt (mit ID,Beschreibung,Wert&Datum)
         id: Date.now(),
         desc: obj.desc,
@@ -36,9 +44,11 @@ export default {
       state,
       Form,
       AddIncome,
-      removeItem
+      removeItem,
+      IncomeList
     };
-  }
+  },
+  components: { IncomeList }        //defi
 };
 
 </script>
@@ -46,6 +56,7 @@ export default {
 <template>                                    <!--Verwendung der Komponenten-->
   <Header :totalIncome="state.totalIncome" /> <!--totalIncome wird als Prop an Header übergeben-->
   <Form @add-income="AddIncome" />            <!--wenn in Form.vue ausgelöst, wird add-income abgefangen & Funktion AddIncome aufgerufen-->
+  <IncomeList :state="state" @remove-item="removeItem" />
 </template>
 
 
