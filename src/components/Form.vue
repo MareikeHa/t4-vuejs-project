@@ -37,7 +37,7 @@ export default {
     <input type="text" placeholder="Beschreibung" v-model="formData.desc" required/>
     <input type="number" placeholder="Wert" v-model="formData.value" required/>
     <input type="date" placeholder="Datum" v-model="formData.date" required/>
-    <button type="submit">Submit</button>
+    <button type="submit">Eingeben</button>
   </form>
 </template>
 
